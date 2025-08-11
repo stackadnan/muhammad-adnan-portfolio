@@ -110,8 +110,8 @@ const Hero = () => {
             Hi, I'm <span className="gradient-text">Muhammad Adnan</span>
           </h1>
           <p className="text-text-secondary font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
-            I develop full-stack web applications, <br className="sm:block hidden" />
-            automation bots, and AI-powered solutions
+            I build web apps, create smart bots, <br className="sm:block hidden" />
+            and work with AI to solve real problems
           </p>
           
           <div className="mt-10 flex flex-wrap gap-4">

@@ -7,22 +7,22 @@ const About = () => {
     {
       title: "Full Stack Development",
       icon: Code,
-      description: "Expert in React, Next.js, FastAPI, and MongoDB for complete web solutions."
+      description: "I build complete web apps with React, Next.js, FastAPI, and MongoDB."
     },
     {
       title: "Automation & Bots",
       icon: Bot,
-      description: "Creating intelligent bots for social media, scraping, and business automation."
+      description: "Creating bots that handle social media, scraping, and repetitive business tasks."
     },
     {
       title: "AI & Machine Learning",
       icon: Cpu,
-      description: "Face recognition systems, AI assistants, and computer vision applications."
+      description: "Working with face recognition, AI assistants, and computer vision projects."
     },
     {
       title: "Database Solutions",
       icon: Database,
-      description: "Designing efficient database architectures and data processing systems."
+      description: "Setting up databases and data processing systems that actually work."
     }
   ]
 
@@ -67,11 +67,11 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-4 text-text-secondary text-[17px] max-w-3xl leading-[30px] mx-auto text-center"
         >
-          I'm a skilled Full Stack Developer with experience in Python, JavaScript, and modern frameworks 
-          like React and Next.js. I specialize in creating intelligent automation solutions, web scraping 
-          bots, and AI-powered applications. My expertise extends to face recognition systems, social media 
-          automation, and scalable web applications. I'm passionate about solving complex problems through 
-          innovative technology solutions.
+          I'm a developer who loves building things that work. Started with customer service, then discovered 
+          coding and never looked back. I spend most of my time with Python and JavaScript, creating everything 
+          from social media bots to face recognition systems. What gets me excited? Taking complex problems 
+          and turning them into simple, working solutions. Whether it's scraping data, automating repetitive 
+          tasks, or building full web applications - I enjoy the challenge of making technology do useful things.
         </motion.p>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -106,22 +106,22 @@ const About = () => {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <h3 className="text-white text-[30px] font-bold mb-6">Technical Expertise</h3>
+            <h3 className="text-white text-[30px] font-bold mb-6">What I Actually Do</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-accent text-[18px] font-semibold mb-2">Frontend Development</h4>
+                <h4 className="text-accent text-[18px] font-semibold mb-2">Frontend Stuff</h4>
                 <p className="text-text-secondary">React.js, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, Fabric.js</p>
               </div>
               <div>
-                <h4 className="text-accent text-[18px] font-semibold mb-2">Backend Development</h4>
+                <h4 className="text-accent text-[18px] font-semibold mb-2">Backend & APIs</h4>
                 <p className="text-text-secondary">Python, FastAPI, Node.js, RESTful APIs, WebSockets</p>
               </div>
               <div>
-                <h4 className="text-accent text-[18px] font-semibold mb-2">Database & Storage</h4>
+                <h4 className="text-accent text-[18px] font-semibold mb-2">Data & Storage</h4>
                 <p className="text-text-secondary">MongoDB, Pickle, Database Design, Data Processing</p>
               </div>
               <div>
-                <h4 className="text-accent text-[18px] font-semibold mb-2">AI & Automation</h4>
+                <h4 className="text-accent text-[18px] font-semibold mb-2">Automation & AI</h4>
                 <p className="text-text-secondary">Face Recognition, Computer Vision, Selenium, BeautifulSoup, Bot Development</p>
               </div>
             </div>
@@ -134,27 +134,27 @@ const About = () => {
             viewport={{ once: true }}
             className="glass-morphism p-8 rounded-2xl"
           >
-            <h3 className="text-white text-[24px] font-bold mb-6">What I Bring to the Table</h3>
+            <h3 className="text-white text-[24px] font-bold mb-6">Why Work With Me</h3>
             <ul className="space-y-3 text-text-secondary">
               <li className="flex items-start">
                 <span className="text-accent mr-2">▶</span>
-                <span>5+ years of experience in software development and automation</span>
+                <span>I've been coding and building things for over 3 years now</span>
               </li>
               <li className="flex items-start">
                 <span className="text-accent mr-2">▶</span>
-                <span>Proven track record in bot development and web scraping</span>
+                <span>Built tons of bots and scraping tools that actually work</span>
               </li>
               <li className="flex items-start">
                 <span className="text-accent mr-2">▶</span>
-                <span>Expertise in AI integration and computer vision applications</span>
+                <span>Love working with AI and computer vision - it's genuinely interesting</span>
               </li>
               <li className="flex items-start">
                 <span className="text-accent mr-2">▶</span>
-                <span>Strong problem-solving skills and attention to detail</span>
+                <span>I like solving problems and figuring out how things work</span>
               </li>
               <li className="flex items-start">
                 <span className="text-accent mr-2">▶</span>
-                <span>Ability to work with diverse technologies and adapt quickly</span>
+                <span>Quick to pick up new tech when I need to</span>
               </li>
             </ul>
           </motion.div>

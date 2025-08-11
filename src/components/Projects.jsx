@@ -8,7 +8,7 @@ const Projects = () => {
   const projects = [
     {
       name: "Face Sketch Construction & Recognition System",
-      description: "AI-powered face recognition system with sketch construction capabilities using FastAPI backend, Next.js frontend, and MongoDB database.",
+      description: "Built an AI system that can recognize faces and let users draw sketches. Used FastAPI for the backend, Next.js for the frontend, and MongoDB to store everything.",
       tags: ["Python", "FastAPI", "Next.js", "MongoDB", "Face Recognition", "Fabric.js", "Pickle"],
       image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=300&fit=crop",
       source_code_link: "https://github.com/stackadnan",
@@ -18,7 +18,7 @@ const Projects = () => {
     },
     {
       name: "Social Media Automation Suite",
-      description: "Comprehensive bot collection for Facebook post liking/commenting, Instagram engagement, and LinkedIn interaction automation.",
+      description: "Made a bunch of bots that can like posts, comment, and interact on Facebook, Instagram, and LinkedIn automatically.",
       tags: ["Python", "Selenium", "BeautifulSoup", "Automation", "Social Media"],
       image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&h=300&fit=crop",
       source_code_link: "https://github.com/stackadnan",
@@ -58,7 +58,7 @@ const Projects = () => {
     },
     {
       name: "Binance to Bitget Trading Bot",
-      description: "Cryptocurrency trading bot that mirrors Binance trades on multiple Bitget accounts with real-time synchronization.",
+      description: "Built a trading bot that watches my Binance account and copies all trades to multiple Bitget accounts in real-time.",
       tags: ["Python", "Trading APIs", "Cryptocurrency", "Real-time", "Automation"],
       image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=400&h=300&fit=crop",
       source_code_link: "https://github.com/stackadnan",
@@ -177,8 +177,8 @@ const Projects = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="mt-3 text-text-secondary text-[17px] max-w-3xl mx-auto">
-            Following projects showcase my skills and experience through real-world examples of my work. 
-            Each project is briefly described with links to code repositories and live demos.
+            Here are some projects I've worked on. Each one taught me something new and helped me get better at coding. 
+            You can check out the code and see how I built them.
           </p>
         </div>
 

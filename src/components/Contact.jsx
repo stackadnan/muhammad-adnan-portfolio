@@ -95,8 +95,8 @@ const Contact = () => {
             Contact <span className="gradient-text">Me</span>
           </h2>
           <p className="mt-3 text-text-secondary text-[17px] max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your project and explore how we can work together 
-            to create something exceptional.
+            Got a project in mind? Want to build something cool together? I'm always up for interesting challenges 
+            and new opportunities. Drop me a message and let's see what we can create.
           </p>
         </div>
 
@@ -112,9 +112,9 @@ const Contact = () => {
             <div>
               <h3 className="text-white text-[24px] font-bold mb-6">Let's Connect</h3>
               <p className="text-text-secondary text-[16px] leading-relaxed mb-8">
-                I'm always excited to work on new projects and collaborate with passionate individuals and teams. 
-                Whether you need a full-stack web application, automation solutions, or AI-powered systems, 
-                I'm here to help bring your vision to reality.
+                I love working on projects that solve real problems. Whether you need a web app, some automation, 
+                or want to add AI to your business - I'm interested. I work with both individuals and companies, 
+                and I'm always excited to learn about new challenges.
               </p>
             </div>
 

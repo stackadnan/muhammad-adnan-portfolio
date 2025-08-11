@@ -12,12 +12,12 @@ const Experience = () => {
       date: "January 2023 - Present",
       location: "Remote",
       points: [
-        "Started with Selenium automation, creating sophisticated bots for Facebook, Instagram, Skyscanner, and LinkedIn",
-        "Advanced to web scraping using Requests and BeautifulSoup for platforms like TicketMaster",
-        "Developed Face Sketch Construction and Recognition system using FastAPI, Next.js, and MongoDB",
-        "Implemented face recognition using pre-trained Python libraries and optimized performance with Pickle for encoding storage",
-        "Created interactive canvas functionality using Fabric.js for the frontend interface",
-        "Built various automation solutions including social media bots, lead generation tools, and trading bots"
+        "Started with Selenium automation - learned by building Facebook, Instagram, and LinkedIn bots",
+        "Got into web scraping with Python - built scrapers for TicketMaster and other sites",
+        "Built a face recognition system from scratch using FastAPI backend and Next.js frontend",
+        "Used MongoDB for data storage and optimized everything with Pickle for faster processing",
+        "Added canvas drawing with Fabric.js so users could actually sketch faces",
+        "Now I handle all kinds of automation - social media bots, trading bots, lead generation tools"
       ],
       technologies: ["Python", "FastAPI", "Next.js", "MongoDB", "Selenium", "BeautifulSoup", "Fabric.js", "Face Recognition", "Pickle"]
     },
@@ -29,10 +29,10 @@ const Experience = () => {
       date: "June 2021 - December 2022",
       location: "Remote",
       points: [
-        "Worked as CSR on multiple campaigns including Medicare, Final Expense, Refinancing, and Reverse Mortgage",
-        "Developed strong communication and problem-solving skills while handling diverse client needs",
-        "Gained valuable experience in customer relationship management and service delivery",
-        "Built expertise in understanding complex financial products and explaining them to customers"
+        "Handled customer calls for Medicare, Final Expense, Refinancing, and Reverse Mortgage campaigns",
+        "Learned how to explain complicated financial stuff in simple terms",
+        "Got really good at solving problems on the spot and keeping customers happy",
+        "This job taught me patience and how to communicate clearly - skills I use in development too"
       ],
       technologies: ["Customer Service", "Medicare", "Financial Products", "Communication", "Problem Solving"]
     }
