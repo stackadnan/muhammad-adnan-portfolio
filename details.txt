@@ -1,0 +1,29 @@
+Name :Muhammad Adnan
+Gmail : muhammadadnan0028@gmail.com 
+github : https://github.com/stackadnan
+linkedinn :https://www.linkedin.com/in/stackadnan/
+
+
+
+
+Experience :
+Fourways Global (June 2021 to Dec 2022):Worked as CSR on different compaigns (Medicare,Final Expence,Refinancing ,Reverese Mortgage)
+
+
+Softolift (Jan 2023 to Present) : Started from working on selenium created the bots (like facebook bot,instagram bot,skyscanner ,linkedinn commmenting bot) Then started working on request and beautifulSoup had scraping projects like TicketMaster etc,Then Moved to Full Stack and begin working on Face Sketch Construction and Recogntion in which i used backend as Fast APi , frontend Next Js and Mongo Db (For this project i used face recogntion pretarined python libabry for face recogntion and pickle for large scale array handling for making the process faster i used the encoding and saved them to pickle for not to scanning the images again and again on frontend used fabric.js for canvas).
+Some of my Projects are :
+1.Facebook post liking and commeting bot.
+2.Instagram Post Liking ,ai commenting ,story viewing bots.
+3.LinkedInn Scraping and interaction bots.
+4.True People Search Lead Generation Bot.
+5.Demontolivo website for software house.
+6.Tetris Game on embeded on the Qualtircs for Survey.
+7.Binance to Multi Bitget Mirroring Bot.
+8.king_jouet_and_amazon_scraper (Checking the same product price on both platfroms).
+9.Teleport App Telegram Bot
+10.Speech-Activated AI Assistant on Raspberry Pi.
+11.Softolift Website using next.Js
+12.Youtube Video Downloader and Uploader Bot .
+13.Bol_dot_com_bot for monotoring Pokemon Cards.
+14.Doctolib Bot for checking Registered and Non Registered Numbers on website Database.
+15.Tg.casino and Cosino Bot for checking Registered emails on website. 
