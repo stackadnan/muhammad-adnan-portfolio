@@ -1,211 +1,36 @@
-import React, { Suspense } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Preload } from '@react-three/drei'
+import React from 'react'
 import { motion } from 'framer-motion'
-import CanvasLoader from './CanvasLoader'
-
-// Professional Floating Tech Element
-const ProfessionalTechElement = ({ position, color, scale = 1, rotationSpeed = 1 }) => {
-  const meshRef = React.useRef()
-  const ringRef = React.useRef()
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * rotationSpeed * 0.3
-      meshRef.current.rotation.y = state.clock.elapsedTime * rotationSpeed * 0.5
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 2) * 0.1
-    }
-    if (ringRef.current) {
-      ringRef.current.rotation.z = state.clock.elapsedTime * rotationSpeed * 0.8
-    }
-  })
-
-  return (
-    <group position={position}>
-      {/* Outer Glow Ring */}
-      <mesh ref={ringRef}>
-        <torusGeometry args={[1.2 * scale, 0.03 * scale, 8, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.4} />
-      </mesh>
-      
-      {/* Inner Tech Core */}
-      <mesh ref={meshRef}>
-        <octahedronGeometry args={[0.5 * scale]} />
-        <meshStandardMaterial 
-          color={color}
-          metalness={0.8}
-          roughness={0.1}
-          emissive={color}
-          emissiveIntensity={0.3}
-        />
-      </mesh>
-      
-      {/* Connection Lines */}
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={6}
-            array={new Float32Array([
-              0, 0, 0, 0.8 * scale, 0, 0,
-              0, 0, 0, -0.8 * scale, 0, 0,
-              0, 0, 0, 0, 0.8 * scale, 0,
-            ])}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial color={color} transparent opacity={0.6} />
-      </lineSegments>
-    </group>
-  )
-}
-
-// Futuristic Particle System
-const ParticleField = ({ isMobile }) => {
-  const particlesRef = React.useRef()
-  
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.1
-    }
-  })
-
-  const particleCount = isMobile ? 50 : 100
-  const positions = new Float32Array(particleCount * 3)
-  
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 20
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 15
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 20
-  }
-
-  return (
-    <group ref={particlesRef}>
-      <points>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={particleCount}
-            array={positions}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <pointsMaterial 
-          color="#4facfe" 
-          size={0.05} 
-          transparent 
-          opacity={0.8}
-          sizeAttenuation={true}
-        />
-      </points>
-    </group>
-  )
-}
-
-const Computers = ({ isMobile }) => {
-  return (
-    <mesh>
-      {/* Professional Lighting Setup */}
-      <hemisphereLight intensity={0.6} groundColor="#0a0a0a" skyColor="#ffffff" />
-      <directionalLight
-        position={[10, 10, 5]}
-        intensity={2}
-        castShadow
-        shadow-mapSize={2048}
-      />
-      <pointLight position={[-15, 5, -10]} color="#4facfe" intensity={1.5} />
-      <pointLight position={[15, -5, 10]} color="#00f2fe" intensity={1.5} />
-      <ambientLight intensity={0.4} />
-      
-      {/* Professional Tech Elements */}
-      <group position={isMobile ? [2, 0, 0] : [4, 0, 0]}>
-        <ProfessionalTechElement 
-          position={isMobile ? [1.5, 0.8, 0] : [3, 1.5, 0]} 
-          color="#61DAFB" 
-          scale={isMobile ? 0.6 : 1}
-          rotationSpeed={0.8}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [-1.2, 0.3, 0.8] : [-2.5, 0.5, 1.5]} 
-          color="#3776AB" 
-          scale={isMobile ? 0.7 : 1.1}
-          rotationSpeed={1.2}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [0.8, -1, 0.2] : [1.5, -2, 0.5]} 
-          color="#68A063" 
-          scale={isMobile ? 0.5 : 0.9}
-          rotationSpeed={1.0}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [-0.8, -0.5, -0.8] : [-1.5, -1, -1.5]} 
-          color="#F0DB4F" 
-          scale={isMobile ? 0.6 : 1}
-          rotationSpeed={0.9}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [1.8, -0.8, -1.2] : [3.5, -1.5, -2.5]} 
-          color="#FF6B35" 
-          scale={isMobile ? 0.8 : 1.2}
-          rotationSpeed={1.1}
-        />
-      </group>
-      
-      {/* Futuristic Particle Field */}
-      <ParticleField isMobile={isMobile} />
-    </mesh>
-  )
-}
-
-const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = React.useState(false)
-
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 500px)')
-    setIsMobile(mediaQuery.matches)
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches)
-    }
-
-    mediaQuery.addEventListener('change', handleMediaQueryChange)
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange)
-    }
-  }, [])
-
-  return (
-    <Canvas
-      frameloop="demand"
-      shadows
-      dpr={[1, 2]}
-      camera={{ 
-        position: isMobile ? [15, 3, 5] : [25, 3, 8], 
-        fov: isMobile ? 35 : 25 
-      }}
-      gl={{ preserveDrawingBuffer: true }}
-      style={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
-        <Computers isMobile={isMobile} />
-      </Suspense>
-
-      <Preload all />
-    </Canvas>
-  )
-}
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full h-screen mx-auto overflow-hidden">
+      {/* Clean CSS Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/5 to-transparent"></div>
+      
+      {/* Subtle floating elements with CSS */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-accent/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
       <div className="absolute inset-0 top-[120px] max-w-7xl mx-auto section-padding flex flex-row items-start gap-5 z-10">
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-accent" />
@@ -250,8 +75,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      <ComputersCanvas />
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
