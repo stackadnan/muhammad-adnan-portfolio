@@ -172,11 +172,11 @@ const Projects = () => {
         className="max-w-7xl mx-auto"
       >
         <div className="text-center mb-16">
-          <p className="text-text-secondary text-[14px] tracking-wider uppercase">My work</p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <p className="theme-text-secondary text-[14px] tracking-wider uppercase">My work</p>
+          <h2 className="theme-text font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="mt-3 text-text-secondary text-[17px] max-w-3xl mx-auto">
+          <p className="mt-3 theme-text-secondary text-[17px] max-w-3xl mx-auto">
             Here are some projects I've worked on. Each one taught me something new and helped me get better at coding. 
             You can check out the code and see how I built them.
           </p>
@@ -237,8 +237,8 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-white text-[18px] font-bold mb-2">{project.name}</h3>
-                <p className="text-text-secondary text-[14px] leading-relaxed mb-4">
+                <h3 className="theme-text text-[18px] font-bold mb-2">{project.name}</h3>
+                <p className="theme-text-secondary text-[14px] leading-relaxed mb-4">
                   {project.description}
                 </p>
 
@@ -247,7 +247,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={`${project.name}-tag-${tagIndex}`}
-                      className="text-[12px] text-accent bg-primary px-2 py-1 rounded-md"
+                      className="text-[12px] text-accent theme-bg-primary px-2 py-1 rounded-md"
                     >
                       #{tag}
                     </span>
@@ -267,8 +267,8 @@ const Projects = () => {
           className="mt-20 text-center"
         >
           <div className="glass-morphism p-8 rounded-2xl max-w-2xl mx-auto">
-            <h3 className="text-white text-[24px] font-bold mb-4">Interested in Working Together?</h3>
-            <p className="text-text-secondary mb-6">
+            <h3 className="theme-text text-[24px] font-bold mb-4">Interested in Working Together?</h3>
+            <p className="theme-text-secondary mb-6">
               I'm always open to discussing new opportunities and interesting projects. 
               Let's create something amazing together!
             </p>

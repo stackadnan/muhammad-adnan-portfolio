@@ -81,7 +81,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20 section-padding bg-secondary">
+    <section id="contact" className="py-20 section-padding theme-bg-secondary">
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
@@ -90,11 +90,11 @@ const Contact = () => {
         className="max-w-7xl mx-auto"
       >
         <div className="text-center mb-16">
-          <p className="text-text-secondary text-[14px] tracking-wider uppercase">Get in touch</p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <p className="theme-text-secondary text-[14px] tracking-wider uppercase">Get in touch</p>
+          <h2 className="theme-text font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
             Contact <span className="gradient-text">Me</span>
           </h2>
-          <p className="mt-3 text-text-secondary text-[17px] max-w-3xl mx-auto">
+          <p className="mt-3 theme-text-secondary text-[17px] max-w-3xl mx-auto">
             Got a project in mind? Want to build something cool together? I'm always up for interesting challenges 
             and new opportunities. Drop me a message and let's see what we can create.
           </p>
@@ -110,8 +110,8 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-white text-[24px] font-bold mb-6">Let's Connect</h3>
-              <p className="text-text-secondary text-[16px] leading-relaxed mb-8">
+              <h3 className="theme-text text-[24px] font-bold mb-6">Let's Connect</h3>
+              <p className="theme-text-secondary text-[16px] leading-relaxed mb-8">
                 I love working on projects that solve real problems. Whether you need a web app, some automation, 
                 or want to add AI to your business - I'm interested. I work with both individuals and companies, 
                 and I'm always excited to learn about new challenges.
@@ -132,19 +132,19 @@ const Contact = () => {
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white text-[16px] font-semibold">{item.title}</h4>
+                    <h4 className="theme-text text-[16px] font-semibold">{item.title}</h4>
                     {item.link ? (
                       <a
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-text-secondary hover:text-accent transition-colors duration-300 flex items-center gap-1"
+                        className="theme-text-secondary hover:text-accent transition-colors duration-300 flex items-center gap-1"
                       >
                         {item.value}
                         <ExternalLink size={14} />
                       </a>
                     ) : (
-                      <p className="text-text-secondary">{item.value}</p>
+                      <p className="theme-text-secondary">{item.value}</p>
                     )}
                   </div>
                 </motion.div>
@@ -178,7 +178,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="glass-morphism p-8 rounded-2xl"
           >
-            <h3 className="text-white text-[24px] font-bold mb-6">Send me a message</h3>
+            <h3 className="theme-text text-[24px] font-bold mb-6">Send me a message</h3>
             
             <form
               ref={formRef}
@@ -186,7 +186,7 @@ const Contact = () => {
               className="space-y-6"
             >
               <div>
-                <label className="flex text-white font-medium mb-2">
+                <label className="flex theme-text font-medium mb-2">
                   Your Name
                 </label>
                 <input
@@ -195,13 +195,13 @@ const Contact = () => {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="What's your good name?"
-                  className="w-full py-4 px-6 placeholder:text-text-secondary text-white rounded-lg outlined-none border-none font-medium bg-primary"
+                  className="w-full py-4 px-6 placeholder:theme-text-secondary theme-text rounded-lg outlined-none border-none font-medium theme-bg-primary"
                   required
                 />
               </div>
               
               <div>
-                <label className="flex text-white font-medium mb-2">
+                <label className="flex theme-text font-medium mb-2">
                   Your Email
                 </label>
                 <input
@@ -210,13 +210,13 @@ const Contact = () => {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="What's your web address?"
-                  className="w-full py-4 px-6 placeholder:text-text-secondary text-white rounded-lg outlined-none border-none font-medium bg-primary"
+                  className="w-full py-4 px-6 placeholder:theme-text-secondary theme-text rounded-lg outlined-none border-none font-medium theme-bg-primary"
                   required
                 />
               </div>
               
               <div>
-                <label className="flex text-white font-medium mb-2">
+                <label className="flex theme-text font-medium mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -225,7 +225,7 @@ const Contact = () => {
                   value={form.message}
                   onChange={handleChange}
                   placeholder="What do you want to say?"
-                  className="w-full py-4 px-6 placeholder:text-text-secondary text-white rounded-lg outlined-none border-none font-medium bg-primary resize-none"
+                  className="w-full py-4 px-6 placeholder:theme-text-secondary theme-text rounded-lg outlined-none border-none font-medium theme-bg-primary resize-none"
                   required
                 />
               </div>
