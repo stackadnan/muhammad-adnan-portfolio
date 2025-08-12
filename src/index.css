@@ -11,9 +11,20 @@
   
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Dark mode (default) */
+  .dark body {
     background-color: #0a0a0a;
     color: #ffffff;
-    overflow-x: hidden;
+  }
+  
+  /* Light mode */
+  .light body {
+    background-color: #f8fafc;
+    color: #1e293b;
   }
   
   html {
@@ -23,9 +34,20 @@
 
 @layer components {
   .glass-morphism {
-    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .dark .glass-morphism {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .light .glass-morphism {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
   
   .gradient-text {
@@ -36,17 +58,86 @@
   }
   
   .section-padding {
-    @apply px-6 sm:px-12 lg:px-24;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+  
+  /* Theme-specific text colors */
+  .theme-text {
+    transition: color 0.3s ease;
+  }
+  
+  .dark .theme-text {
+    color: #ffffff;
+  }
+  
+  .light .theme-text {
+    color: #1e293b;
+  }
+  
+  .theme-text-secondary {
+    transition: color 0.3s ease;
+  }
+  
+  .dark .theme-text-secondary {
+    color: #a3a3a3;
+  }
+  
+  .light .theme-text-secondary {
+    color: #64748b;
+  }
+  
+  /* Theme-specific backgrounds */
+  .theme-bg-primary {
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark .theme-bg-primary {
+    background-color: #0a0a0a;
+  }
+  
+  .light .theme-bg-primary {
+    background-color: #f8fafc;
+  }
+  
+  .theme-bg-secondary {
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark .theme-bg-secondary {
+    background-color: #1a1a1a;
+  }
+  
+  .light .theme-bg-secondary {
+    background-color: #f1f5f9;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar for both themes */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
-::-webkit-scrollbar-track {
+.dark ::-webkit-scrollbar-track {
   background: #1a1a1a;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #e2e8f0;
 }
 
 ::-webkit-scrollbar-thumb {

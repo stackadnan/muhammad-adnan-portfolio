@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false)
@@ -41,19 +42,22 @@ const Navigation = () => {
             window.scrollTo(0, 0)
           }}
         >
-          <p className="text-white text-[18px] font-bold cursor-pointer flex">
+          <p className="theme-text text-[18px] font-bold cursor-pointer flex">
             Muhammad Adnan &nbsp;
             <span className="sm:block hidden gradient-text">| Full Stack Developer</span>
           </p>
         </Link>
 
         <div className="flex items-center gap-6">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           {/* Desktop Navigation */}
           <ul className="list-none hidden sm:flex flex-row gap-10">
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className="text-text-secondary hover:text-white text-[18px] font-medium cursor-pointer transition-colors duration-300"
+                className="theme-text-secondary hover:theme-text text-[18px] font-medium cursor-pointer transition-colors duration-300"
               >
                 <a href={`#${link.id}`}>{link.title}</a>
               </li>
@@ -68,7 +72,7 @@ const Navigation = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-secondary hover:text-accent transition-colors duration-300"
+                className="theme-text-secondary hover:text-accent transition-colors duration-300"
                 aria-label={social.label}
               >
                 <social.icon size={20} />
@@ -80,7 +84,7 @@ const Navigation = () => {
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <button
               onClick={() => setToggle(!toggle)}
-              className="text-white"
+              className="theme-text"
               aria-label="Toggle menu"
             >
               {toggle ? <X size={28} /> : <Menu size={28} />}
@@ -95,7 +99,7 @@ const Navigation = () => {
                 {navLinks.map((link) => (
                   <li
                     key={link.id}
-                    className="font-poppins font-medium cursor-pointer text-[16px] text-text-secondary hover:text-white transition-colors duration-300"
+                    className="font-poppins font-medium cursor-pointer text-[16px] theme-text-secondary hover:theme-text transition-colors duration-300"
                     onClick={() => setToggle(!toggle)}
                   >
                     <a href={`#${link.id}`}>{link.title}</a>
@@ -108,7 +112,7 @@ const Navigation = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-text-secondary hover:text-accent transition-colors duration-300"
+                      className="theme-text-secondary hover:text-accent transition-colors duration-300"
                       aria-label={social.label}
                     >
                       <social.icon size={18} />

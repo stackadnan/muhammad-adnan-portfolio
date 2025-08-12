@@ -57,15 +57,15 @@ const About = () => {
         className="max-w-7xl mx-auto"
       >
         <div className="text-center mb-16">
-          <p className="text-text-secondary text-[14px] tracking-wider uppercase">Introduction</p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <p className="theme-text-secondary text-[14px] tracking-wider uppercase">Introduction</p>
+          <h2 className="theme-text font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
             About <span className="gradient-text">Me</span>
           </h2>
         </div>
 
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-4 text-text-secondary text-[17px] max-w-3xl leading-[30px] mx-auto text-center"
+          className="mt-4 theme-text-secondary text-[17px] max-w-3xl leading-[30px] mx-auto text-center"
         >
           I'm a developer who loves building things that work. Started with customer service, then discovered 
           coding and never looked back. I spend most of my time with Python and JavaScript, creating everything 
@@ -85,12 +85,12 @@ const About = () => {
               className="w-full"
             >
               <div className="glass-morphism p-[1px] rounded-[20px]">
-                <div className="bg-secondary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+                <div className="theme-bg-secondary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
                   <service.icon className="w-16 h-16 text-accent mb-4" />
-                  <h3 className="text-white text-[20px] font-bold text-center">
+                  <h3 className="theme-text text-[20px] font-bold text-center">
                     {service.title}
                   </h3>
-                  <p className="text-text-secondary text-[14px] text-center mt-2">
+                  <p className="theme-text-secondary text-[14px] text-center mt-2">
                     {service.description}
                   </p>
                 </div>

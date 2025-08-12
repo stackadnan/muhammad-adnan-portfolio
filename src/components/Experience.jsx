@@ -60,7 +60,7 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 section-padding bg-secondary">
+    <section id="experience" className="py-20 section-padding theme-bg-secondary">
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
@@ -69,8 +69,8 @@ const Experience = () => {
         className="max-w-7xl mx-auto"
       >
         <div className="text-center mb-16">
-          <p className="text-text-secondary text-[14px] tracking-wider uppercase">What I have done so far</p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <p className="theme-text-secondary text-[14px] tracking-wider uppercase">What I have done so far</p>
+          <h2 className="theme-text font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
             Work <span className="gradient-text">Experience</span>
           </h2>
         </div>
@@ -98,18 +98,18 @@ const Experience = () => {
                   <div className="flex-grow">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
                       <div>
-                        <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
+                        <h3 className="theme-text text-[24px] font-bold">{experience.title}</h3>
                         <div className="flex items-center gap-2 text-accent text-[18px] font-semibold">
                           <Building2 size={18} />
                           {experience.company_name}
                         </div>
                       </div>
                       <div className="flex flex-col lg:items-end mt-2 lg:mt-0">
-                        <div className="flex items-center gap-2 text-text-secondary">
+                        <div className="flex items-center gap-2 theme-text-secondary">
                           <Calendar size={16} />
                           {experience.date}
                         </div>
-                        <div className="flex items-center gap-2 text-text-secondary">
+                        <div className="flex items-center gap-2 theme-text-secondary">
                           <MapPin size={16} />
                           {experience.location}
                         </div>

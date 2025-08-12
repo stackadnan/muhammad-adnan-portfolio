@@ -27,3 +27,8 @@ Some of my Projects are :
 13.Bol_dot_com_bot for monotoring Pokemon Cards.
 14.Doctolib Bot for checking Registered and Non Registered Numbers on website Database.
 15.Tg.casino and Cosino Bot for checking Registered emails on website. 
+
+
+
+
+Education : BS Software Engineering From Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology.

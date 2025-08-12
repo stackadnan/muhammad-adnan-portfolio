@@ -106,10 +106,10 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+          <h1 className="font-black theme-text lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
             Hi, I'm <span className="gradient-text">Muhammad Adnan</span>
           </h1>
-          <p className="text-text-secondary font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
+          <p className="theme-text-secondary font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
             I build web apps, create smart bots, <br className="sm:block hidden" />
             and work with AI to solve real problems
           </p>
@@ -156,7 +156,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-3 h-3 rounded-full bg-text-secondary mb-1"
+              className="w-3 h-3 rounded-full theme-text-secondary mb-1"
             />
           </div>
         </a>
