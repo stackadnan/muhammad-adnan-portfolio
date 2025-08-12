@@ -1,158 +1,190 @@
 import React, { Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Preload } from '@react-three/drei'
+import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 import { motion } from 'framer-motion'
 import CanvasLoader from './CanvasLoader'
 
-// Professional Floating Tech Element
-const ProfessionalTechElement = ({ position, color, scale = 1, rotationSpeed = 1 }) => {
+// Floating Tech Icon Component
+const TechIcon = ({ position, icon, color, scale = 1, rotation = [0, 0, 0] }) => {
   const meshRef = React.useRef()
-  const ringRef = React.useRef()
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * rotationSpeed * 0.3
-      meshRef.current.rotation.y = state.clock.elapsedTime * rotationSpeed * 0.5
+      meshRef.current.rotation.x = rotation[0] + state.clock.elapsedTime * 0.3
+      meshRef.current.rotation.y = rotation[1] + state.clock.elapsedTime * 0.2
       meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 2) * 0.1
-    }
-    if (ringRef.current) {
-      ringRef.current.rotation.z = state.clock.elapsedTime * rotationSpeed * 0.8
     }
   })
 
   return (
     <group position={position}>
-      {/* Outer Glow Ring */}
-      <mesh ref={ringRef}>
-        <torusGeometry args={[1.2 * scale, 0.03 * scale, 8, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.4} />
+      {/* Glowing Ring Effect */}
+      <mesh>
+        <torusGeometry args={[0.8 * scale, 0.05 * scale, 8, 32]} />
+        <meshBasicMaterial color={color} transparent opacity={0.3} />
       </mesh>
       
-      {/* Inner Tech Core */}
+      {/* Main Icon Container */}
       <mesh ref={meshRef}>
-        <octahedronGeometry args={[0.5 * scale]} />
+        <cylinderGeometry args={[0.6 * scale, 0.6 * scale, 0.05 * scale, 32]} />
         <meshStandardMaterial 
           color={color}
-          metalness={0.8}
+          metalness={0.9}
           roughness={0.1}
           emissive={color}
-          emissiveIntensity={0.3}
+          emissiveIntensity={0.2}
         />
       </mesh>
       
-      {/* Connection Lines */}
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={6}
-            array={new Float32Array([
-              0, 0, 0, 0.8 * scale, 0, 0,
-              0, 0, 0, -0.8 * scale, 0, 0,
-              0, 0, 0, 0, 0.8 * scale, 0,
-            ])}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial color={color} transparent opacity={0.6} />
-      </lineSegments>
+      {/* Icon Symbol */}
+      <mesh position={[0, 0, 0.03 * scale]}>
+        <boxGeometry args={[0.3 * scale, 0.3 * scale, 0.01 * scale]} />
+        <meshBasicMaterial color="white" />
+      </mesh>
+      
+      {/* Particle Effects */}
+      {[...Array(8)].map((_, i) => (
+        <mesh 
+          key={i}
+          position={[
+            Math.cos((i / 8) * Math.PI * 2) * 1.2 * scale,
+            Math.sin((i / 8) * Math.PI * 2) * 0.2,
+            Math.sin((i / 8) * Math.PI * 2) * 1.2 * scale
+          ]}
+        >
+          <sphereGeometry args={[0.02 * scale]} />
+          <meshBasicMaterial color={color} transparent opacity={0.6} />
+        </mesh>
+      ))}
     </group>
   )
 }
 
-// Futuristic Particle System
-const ParticleField = ({ isMobile }) => {
-  const particlesRef = React.useRef()
+// Professional Floating Network
+const FloatingNetwork = ({ isMobile }) => {
+  const groupRef = React.useRef()
   
   useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.1
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.1
     }
   })
 
-  const particleCount = isMobile ? 50 : 100
-  const positions = new Float32Array(particleCount * 3)
-  
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 20
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 15
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 20
-  }
+  const scale = isMobile ? 0.6 : 1
+  const spread = isMobile ? 1.5 : 2.5
 
   return (
-    <group ref={particlesRef}>
-      <points>
-        <bufferGeometry>
+    <group ref={groupRef} position={isMobile ? [1.5, 0, 0] : [3, 0, 0]}>
+      {/* Connection Lines */}
+      <lineSegments>
+        <bufferGeometry attach="geometry">
           <bufferAttribute
             attach="attributes-position"
-            count={particleCount}
-            array={positions}
+            count={20}
+            array={new Float32Array([
+              0, 0, 0, spread, 0, 0,
+              0, 0, 0, -spread, 0, 0,
+              0, 0, 0, 0, spread, 0,
+              0, 0, 0, 0, -spread, 0,
+              0, 0, 0, 0, 0, spread,
+              0, 0, 0, 0, 0, -spread,
+            ])}
             itemSize={3}
           />
         </bufferGeometry>
-        <pointsMaterial 
-          color="#4facfe" 
-          size={0.05} 
-          transparent 
-          opacity={0.8}
-          sizeAttenuation={true}
-        />
-      </points>
+        <lineBasicMaterial color="#4facfe" transparent opacity={0.3} />
+      </lineSegments>
+      
+      {/* Tech Icons */}
+      <TechIcon 
+        position={[spread, 0, 0]} 
+        icon="react" 
+        color="#61DAFB" 
+        scale={scale}
+        rotation={[0.5, 0.3, 0]}
+      />
+      <TechIcon 
+        position={[-spread, 0, 0]} 
+        icon="python" 
+        color="#3776AB" 
+        scale={scale}
+        rotation={[0.2, 0.8, 0.1]}
+      />
+      <TechIcon 
+        position={[0, spread, 0]} 
+        icon="nodejs" 
+        color="#68A063" 
+        scale={scale}
+        rotation={[0.7, 0.1, 0.4]}
+      />
+      <TechIcon 
+        position={[0, -spread, 0]} 
+        icon="js" 
+        color="#F0DB4F" 
+        scale={scale}
+        rotation={[0.1, 0.9, 0.2]}
+      />
+      <TechIcon 
+        position={[0, 0, spread]} 
+        icon="ai" 
+        color="#FF6B35" 
+        scale={scale}
+        rotation={[0.4, 0.2, 0.8]}
+      />
     </group>
   )
 }
 
 const Computers = ({ isMobile }) => {
+const Computers = ({ isMobile }) => {
   return (
     <mesh>
-      {/* Professional Lighting Setup */}
-      <hemisphereLight intensity={0.6} groundColor="#0a0a0a" skyColor="#ffffff" />
+      {/* Advanced Lighting Setup */}
+      <hemisphereLight intensity={0.4} groundColor="#080820" skyColor="#87CEEB" />
       <directionalLight
         position={[10, 10, 5]}
-        intensity={2}
+        intensity={1.5}
         castShadow
         shadow-mapSize={2048}
+        shadow-camera-far={50}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
       />
-      <pointLight position={[-15, 5, -10]} color="#4facfe" intensity={1.5} />
-      <pointLight position={[15, -5, 10]} color="#00f2fe" intensity={1.5} />
-      <ambientLight intensity={0.4} />
+      <pointLight position={[-10, 0, -20]} color="#4facfe" intensity={0.8} />
+      <pointLight position={[10, 0, -20]} color="#00f2fe" intensity={0.8} />
+      <spotLight
+        position={[0, 50, 0]}
+        angle={0.3}
+        penumbra={1}
+        intensity={0.5}
+        color="#ffffff"
+      />
       
-      {/* Professional Tech Elements */}
-      <group position={isMobile ? [2, 0, 0] : [4, 0, 0]}>
-        <ProfessionalTechElement 
-          position={isMobile ? [1.5, 0.8, 0] : [3, 1.5, 0]} 
-          color="#61DAFB" 
-          scale={isMobile ? 0.6 : 1}
-          rotationSpeed={0.8}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [-1.2, 0.3, 0.8] : [-2.5, 0.5, 1.5]} 
-          color="#3776AB" 
-          scale={isMobile ? 0.7 : 1.1}
-          rotationSpeed={1.2}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [0.8, -1, 0.2] : [1.5, -2, 0.5]} 
-          color="#68A063" 
-          scale={isMobile ? 0.5 : 0.9}
-          rotationSpeed={1.0}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [-0.8, -0.5, -0.8] : [-1.5, -1, -1.5]} 
-          color="#F0DB4F" 
-          scale={isMobile ? 0.6 : 1}
-          rotationSpeed={0.9}
-        />
-        <ProfessionalTechElement 
-          position={isMobile ? [1.8, -0.8, -1.2] : [3.5, -1.5, -2.5]} 
-          color="#FF6B35" 
-          scale={isMobile ? 0.8 : 1.2}
-          rotationSpeed={1.1}
-        />
+      {/* Professional Floating Network */}
+      <FloatingNetwork isMobile={isMobile} />
+      
+      {/* Ambient Particles */}
+      <group>
+        {[...Array(isMobile ? 15 : 25)].map((_, i) => (
+          <mesh 
+            key={i}
+            position={[
+              (Math.random() - 0.5) * 20,
+              (Math.random() - 0.5) * 20,
+              (Math.random() - 0.5) * 20
+            ]}
+          >
+            <sphereGeometry args={[0.01]} />
+            <meshBasicMaterial 
+              color={Math.random() > 0.5 ? "#4facfe" : "#00f2fe"} 
+              transparent 
+              opacity={0.6} 
+            />
+          </mesh>
+        ))}
       </group>
-      
-      {/* Futuristic Particle Field */}
-      <ParticleField isMobile={isMobile} />
     </mesh>
   )
 }
@@ -193,7 +225,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={2}
         />
         <Computers isMobile={isMobile} />
       </Suspense>
@@ -212,7 +244,7 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 bg-gradient-to-b from-accent to-transparent" />
         </div>
 
-        <div className="z-10 relative">
+        <div className="z-10 relative">{/* Ensure text is in front */}
           <h1 className="font-black theme-text lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[32px] lg:leading-[98px] leading-tight mt-2">
             Hi, I'm <span className="gradient-text">Muhammad Adnan</span>
           </h1>
