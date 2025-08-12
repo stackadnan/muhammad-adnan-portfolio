@@ -7,48 +7,91 @@ import CanvasLoader from './CanvasLoader'
 const Computers = ({ isMobile }) => {
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={0.3} groundColor="#404040" />
+      <directionalLight
+        position={[10, 10, 5]}
+        intensity={1.2}
+        castShadow
+        shadow-mapSize={1024}
+      />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
         penumbra={1}
-        intensity={1}
+        intensity={0.8}
         castShadow
         shadow-mapSize={1024}
       />
-      <pointLight intensity={1} />
+      <pointLight position={[10, -10, -10]} intensity={0.5} />
+      <ambientLight intensity={0.4} />
       
-      {/* 3D Floating Cubes representing tech stack */}
+      {/* 3D Professional Tech Stack - Modern Dodecahedrons */}
       <group position={isMobile ? [2, -1, -1] : [4, -1, -2]}>
-        {/* React Cube */}
+        {/* React - Modern Dodecahedron */}
         <mesh position={isMobile ? [1, 0, 0] : [2, 0, 0]} rotation={[0.5, 0.5, 0]}>
-          <boxGeometry args={isMobile ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8]} />
-          <meshStandardMaterial color="#61DAFB" />
+          <dodecahedronGeometry args={isMobile ? [0.35] : [0.45]} />
+          <meshStandardMaterial 
+            color="#61DAFB" 
+            metalness={0.6}
+            roughness={0.1}
+            emissive="#0f3a4a"
+            emissiveIntensity={0.2}
+          />
         </mesh>
         
-        {/* Python Cube */}
+        {/* Python - Icosahedron */}
         <mesh position={isMobile ? [-1, 0.5, 0] : [-2, 1, 0]} rotation={[0.3, 0.8, 0.2]}>
-          <boxGeometry args={isMobile ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8]} />
-          <meshStandardMaterial color="#3776AB" />
+          <icosahedronGeometry args={isMobile ? [0.35] : [0.45]} />
+          <meshStandardMaterial 
+            color="#3776AB" 
+            metalness={0.7}
+            roughness={0.2}
+            emissive="#1a2a4a"
+            emissiveIntensity={0.15}
+          />
         </mesh>
         
-        {/* Node.js Cube */}
+        {/* Node.js - Octahedron */}
         <mesh position={isMobile ? [0, -0.5, 1] : [0, -1, 2]} rotation={[0.7, 0.2, 0.5]}>
-          <boxGeometry args={isMobile ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8]} />
-          <meshStandardMaterial color="#339933" />
+          <octahedronGeometry args={isMobile ? [0.4] : [0.5]} />
+          <meshStandardMaterial 
+            color="#68A063" 
+            metalness={0.4}
+            roughness={0.3}
+            emissive="#1a3d1a"
+            emissiveIntensity={0.1}
+          />
         </mesh>
         
-        {/* JavaScript Cube */}
+        {/* JavaScript - Tetrahedron */}
         <mesh position={isMobile ? [-0.5, -1, -0.5] : [-1, -2, -1]} rotation={[0.2, 0.9, 0.1]}>
-          <boxGeometry args={isMobile ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8]} />
-          <meshStandardMaterial color="#F7DF1E" />
+          <tetrahedronGeometry args={isMobile ? [0.45] : [0.55]} />
+          <meshStandardMaterial 
+            color="#F0DB4F" 
+            metalness={0.3}
+            roughness={0.4}
+            emissive="#4a4320"
+            emissiveIntensity={0.1}
+          />
         </mesh>
         
-        {/* Database Cube */}
-        <mesh position={isMobile ? [1.5, -0.5, -1] : [3, -1, -2]} rotation={[0.8, 0.3, 0.6]}>
-          <boxGeometry args={isMobile ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8]} />
-          <meshStandardMaterial color="#4DB33D" />
-        </mesh>
+        {/* AI/Database - Modern Sphere with Wireframe */}
+        <group position={isMobile ? [1.5, -0.5, -1] : [3, -1, -2]} rotation={[0.8, 0.3, 0.6]}>
+          <mesh>
+            <sphereGeometry args={isMobile ? [0.35, 16, 16] : [0.45, 20, 20]} />
+            <meshStandardMaterial 
+              color="#FF6B35" 
+              metalness={0.8}
+              roughness={0.1}
+              emissive="#4a1f0d"
+              emissiveIntensity={0.2}
+            />
+          </mesh>
+          <mesh>
+            <sphereGeometry args={isMobile ? [0.36, 16, 16] : [0.46, 20, 20]} />
+            <meshBasicMaterial color="#FF6B35" wireframe transparent opacity={0.3} />
+          </mesh>
+        </group>
       </group>
     </mesh>
   )
